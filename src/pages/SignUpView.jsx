@@ -27,7 +27,7 @@ function SignUpView() {
 
   return (
     <div className="bg-[var(--foreground)] w-full min-h-screen rounded-2xl py-12 px-4 flex flex-col justify-center items-center gap-4">
-      <img className="w-20" src="/public/Logo.png" alt="icon logo" />
+      <img className="w-20" src="/Logo.png" alt="icon logo" />
       <p className="text-gray-400">Sign up to chat!</p>
 
       <form className="w-full flex flex-col gap-4" onSubmit={handleSignUp}>
