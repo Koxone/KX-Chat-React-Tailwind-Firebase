@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
-function MessageCardIn() {
+function MessageCardOut() {
   return (
-    <div className="bg-green-600 text-white px-4 py-2 rounded-full flex self-end items-center gap-2 shadow-lg w-max max-w-[335px] relative">
-      <span className="absolute -bottom-[5px] right-[4px] w-0 h-0 border-t-[12px] border-t-green-600 border-l-[12px] border-l-transparent" />
+    <div className="bg-neutral-500 text-white px-4 py-2 rounded-full flex self-start items-center gap-2 shadow-lg w-max max-w-[335px] relative">
+      <span className="absolute -bottom-[8px] left-[10px] w-0 h-0 border-t-[12px] border-t-neutral-500 border-r-[12px] border-r-transparent" />
+
       {/* Icono para mensaje temporal */}
       {/* <div className="">
         <svg
@@ -19,9 +20,7 @@ function MessageCardIn() {
       </div> */}
 
       {/* Texto */}
-      <span className="text-sm font-medium break-words flex-1 min-w-0">
-        koxone
-      </span>
+      <span className="text-sm font-medium break-words flex-1 min-w-0">koxone</span>
 
       {/* Hora */}
       <span className="text-xs opacity-80 ml-auto">10:21</span>
@@ -47,4 +46,4 @@ function MessageCardIn() {
   );
 }
 
-export default MessageCardIn;
+export default MessageCardOut;

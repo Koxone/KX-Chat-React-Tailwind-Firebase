@@ -2,7 +2,7 @@ import React from "react";
 
 function ChatHeader() {
   return (
-    <div className="flex items-end pb-2 pl-3 gap-5 backdrop-blur bg-gray-800/50 h-24">
+    <div className="flex items-end pb-2 pl-3 gap-5 backdrop-blur bg-gray-800/50 h-24 fixed top-0 w-full z-10">
       <button className="cursor-pointer hover:border hover:border-neutral-700 rounded-xl hover:bg-neutral-800 transition-normal duration-300">
         <img src="/icons/general/arrow-left.png" alt="left arrow icon" />
       </button>
