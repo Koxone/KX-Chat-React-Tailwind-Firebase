@@ -3,10 +3,10 @@ import ChatSendButton from "../buttons/ChatSendButton";
 
 function ChatFooter() {
   return (
-    <div className="flex items-start justify-center w-full h-20 gap-10 backdrop-blur bg-gray-800/50 pt-1 fixed bottom-0">
-      <div className="flex items-center w-full px-6 gap-4 pt-1">
+    <div className="fixed bottom-0 h-20 inset-x-0 backdrop-blur-md bg-gray-800/60 border-t border-gray-700 shadow-[0_-2px_8px_rgba(0,0,0,0.45)]">
+      <div className="mx-auto flex max-w-3xl items-center gap-4 px-6 py-3">
         <input
-          className="text-[var(--text-color-main)] rounded-2xl p-2 bg-[#272727] text-base placeholder:text-sm outline-none w-full border-transparent"
+          className="flex-1 rounded-full bg-gray-700/70 px-4 py-2 text-base text-[var(--text-color-main)] placeholder-gray-400 outline-none "
           type="text"
         />
         <ChatSendButton />

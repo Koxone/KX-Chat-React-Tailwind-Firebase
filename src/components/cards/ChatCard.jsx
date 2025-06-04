@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function ChatCard() {
   const [unreadCount, setUnreadCount] = useState(0);
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/chat");
+  };
 
   return (
-    <div className="group relative overflow-hidden">
-      {/* Container with border bottom that matches height */}
+    <div onClick={handleClick} className="group relative overflow-hidden">
       <div
         className="flex items-center gap-4 px-4 py-3 w-full cursor-pointer transition-all duration-300 ease-in-out 
       hover:bg-gradient-to-r hover:from-neutral-800/40 hover:to-neutral-700/20 active:bg-gradient-to-r active:from-neutral-800/40 active:to-neutral-700/20 border-b border-neutral-800/60 group-hover:border-neutral-700/80 group-active:border-neutral-700/80"

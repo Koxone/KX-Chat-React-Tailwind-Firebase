@@ -5,7 +5,7 @@ import MessagesContainer from "../components/containers/MessagesContainer";
 
 function ChatView() {
   return (
-    <div className="flex flex-col min-h-screen w-full bg-[url('/background/background.png')] bg-cover bg-center min-h-screen w-full">
+    <div className="flex flex-col min-h-screen w-full bg-[url('/background/background.png')] bg-cover bg-center">
       <ChatHeader />
       <MessagesContainer />
       <ChatFooter />

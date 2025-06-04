@@ -1,15 +1,16 @@
 import { useState } from "react";
-import Footer from "./components/nav/Footer";
-import ChatListcontainer from "./components/containers/ChatListcontainer";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import MainView from "./pages/MainView";  
 import ChatView from "./pages/ChatView";
 
 function App() {
   return (
-    <>
-      {/* <MainView /> */}
-      <ChatView />
-    </>
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<MainView />} />
+        <Route path="/chat" element={<ChatView />} />
+      </Routes>
+    </HashRouter>
   );
 }
 
