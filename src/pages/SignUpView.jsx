@@ -15,18 +15,14 @@ function SignUpView() {
   const [password, setPassword] = useState("");
 
   const handleSignUp = async (e) => {
-    e.preventDefault(); // Previene el reload si usas form
+    e.preventDefault(); 
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      navigate("/"); // Redirige al home
+      navigate("/"); 
     } catch (error) {
       alert("Invalid email or password");
       console.log(error);
     }
-  };
-
-  const handleFoToLogin = () => {
-    navigate("/login");
   };
 
   return (
