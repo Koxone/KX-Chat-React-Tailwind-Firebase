@@ -12,7 +12,6 @@ function App() {
     <AuthProvider>
       <HashRouter>
         <Routes>
-          {/* Ruta protegida */}
           <Route
             path="/"
             element={
@@ -29,7 +28,6 @@ function App() {
               </RequireAuth>
             }
           />
-          {/* Rutas públicas */}
           <Route path="/signup" element={<SignUpView />} />
           <Route path="/login" element={<AuthLoginView />} />
         </Routes>
