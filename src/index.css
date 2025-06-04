@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+body {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  font-family: 'Inter', sans-serif;
+  background-color: black;
+}
+
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/Inter/Inter.ttf') format('truetype');
+}
+
+@theme {
+--text-color-main: #ffffff;
+--text-color-secondary: #959394;
+--color-main-green: #1daa61;
+}
