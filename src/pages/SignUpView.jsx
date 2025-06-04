@@ -4,21 +4,32 @@ import { useNavigate, Link } from "react-router-dom";
 // Firebase Auth
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/firebaseConfig";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../firebase/firebaseConfig";
 
 // Componentes de UI
 import AuthMailInput from "../components/inputs/AuthMailInput";
 import AuthPasswordInput from "../components/inputs/AuthPasswordInput";
+import AuthUserNameInput from "../components/inputs/AuthUserNameInput";
 
 function SignUpView() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
 
   const handleSignUp = async (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      navigate("/"); 
+      const user = auth.currentUser;
+
+      await setDoc(doc(db, "users", user.uid), {
+        email: user.email,
+        username: username,
+        createdAt: new Date(),
+      });
+      navigate("/");
     } catch (error) {
       alert("Invalid email or password");
       console.log(error);
@@ -31,6 +42,7 @@ function SignUpView() {
       <p className="text-gray-400">Sign up to chat!</p>
 
       <form className="w-full flex flex-col gap-4" onSubmit={handleSignUp}>
+        <AuthUserNameInput value={username} onChange={(e) => setUsername(e.target.value)} />
         <AuthMailInput onChange={(e) => setEmail(e.target.value)} value={email} text="Email Address" />
         <AuthPasswordInput
           onChange={(e) => setPassword(e.target.value)}

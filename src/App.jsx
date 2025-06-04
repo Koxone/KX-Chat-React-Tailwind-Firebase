@@ -6,6 +6,7 @@ import ChatView from "./pages/ChatView";
 import SignUpView from "./pages/SignUpView";
 import AuthLoginView from "./pages/AuthLoginView";
 import RequireAuth from "./components/auth/RequireAuth";
+import UsersList from "./components/auth/UserList";
 
 function App() {
   return (
@@ -30,6 +31,14 @@ function App() {
           />
           <Route path="/signup" element={<SignUpView />} />
           <Route path="/login" element={<AuthLoginView />} />
+          <Route
+            path="/users"
+            element={
+              <RequireAuth>
+                <UsersList />
+              </RequireAuth>
+            }
+          />
         </Routes>
       </HashRouter>
     </AuthProvider>

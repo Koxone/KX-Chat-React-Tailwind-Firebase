@@ -7,7 +7,7 @@ function SearchInput() {
       <input
         className="text-[var(--text-color-main)] text-base placeholder:text-sm outline-none w-full"
         type="text"
-        placeholder="Search or start a new chat"
+        placeholder="Search by Username or Chat Name"
       />
     </div>
   );
