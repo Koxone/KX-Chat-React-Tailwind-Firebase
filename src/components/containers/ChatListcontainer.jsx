@@ -1,3 +1,4 @@
+// ChatListcontainer.jsx
 import React, { useEffect, useState } from "react";
 import ChatCard from "../cards/ChatCard";
 
@@ -22,7 +23,11 @@ function ChatListcontainer() {
       const chatUserPromises = snapshot.docs.map(async (chatDoc) => {
         const chatData = chatDoc.data();
 
+        // 🔒 Validar que chatData.participants exista y sea un array
+        if (!Array.isArray(chatData.participants)) return null;
+
         const otherUid = chatData.participants.find((uid) => uid !== currentUser.uid);
+        if (!otherUid) return null;
 
         const otherUserDoc = await getDoc(doc(db, "users", otherUid));
         const otherUserData = otherUserDoc.exists() ? otherUserDoc.data() : {};
@@ -36,7 +41,7 @@ function ChatListcontainer() {
         };
       });
 
-      const users = await Promise.all(chatUserPromises);
+      const users = (await Promise.all(chatUserPromises)).filter(Boolean);
       setChatUsers(users);
     });
 
