@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function ChatCard() {
+function ChatCard({ user }) {
   const [unreadCount, setUnreadCount] = useState(0);
   const navigate = useNavigate();
+
   const handleClick = () => {
-    navigate("/chat");
+    navigate("/chat", { state: { user } }); // <-- pasa el usuario seleccionado
   };
 
   return (
@@ -21,8 +22,8 @@ function ChatCard() {
           group-active:opacity-100 transition-opacity duration-300"
           ></div>
           <img
-            src="/avatar/profile-pic-2.png"
-            alt="Mom's avatar"
+            src={user.avatar || "/avatar/profile-pic-2.png"}
+            alt={`${user.username}'s avatar`}
             className="relative w-14 h-14 rounded-full object-cover ring-2 ring-transparent group-hover:ring-emerald-400/30 group-active:ring-emerald-400/30 
             transition-all duration-300 shadow-lg"
           />
@@ -39,12 +40,13 @@ function ChatCard() {
                 className="text-white text-base font-semibold tracking-wide group-hover:text-emerald-100 group-active:text-emerald-100 
               transition-colors duration-300"
               >
-                Mom
+                {user.username}
               </h2>
               <p
                 className="text-neutral-400 text-sm leading-relaxed group-hover:text-neutral-300 group-active:text-neutral-300 
               transition-colors duration-300 line-clamp-2"
               >
+                {/* Aquí podrías mostrar el último mensaje, si lo tienes */}
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...
               </p>
             </div>
