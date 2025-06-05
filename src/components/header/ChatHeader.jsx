@@ -49,7 +49,7 @@ function ChatHeader() {
       {/* Right section - Action buttons */}
       <div className="flex items-center gap-2 px-4">
         {/* Video call button */}
-        <button className="p-2 rounded-xl hover:bg-gray-700/50 transition-all duration-200 hover:scale-105 active:scale-95 group">
+        <button className="p-2 rounded-xl hover:bg-gray-700/50 transition-all duration-200 hover:opacity-50 hover:cursor-not-allowed hover:scale-105 active:scale-95 group">
           <svg
             className="w-6 h-6 text-gray-400 group-hover:text-emerald-400 transition-colors duration-200"
             fill="currentColor"
@@ -60,7 +60,7 @@ function ChatHeader() {
         </button>
 
         {/* Voice call button */}
-        <button className="p-2 rounded-xl hover:bg-gray-700/50 transition-all duration-200 hover:scale-105 active:scale-95 group">
+        <button className="p-2 rounded-xl hover:opacity-50 hover:cursor-not-allowed hover:bg-gray-700/50 transition-all duration-200 hover:scale-105 active:scale-95 group">
           <svg
             className="w-6 h-6 text-gray-400 group-hover:text-emerald-400 transition-colors duration-200"
             fill="currentColor"
@@ -71,7 +71,7 @@ function ChatHeader() {
         </button>
 
         {/* More options button */}
-        <button className="p-2 rounded-xl hover:bg-gray-700/50 transition-all duration-200 hover:scale-105 active:scale-95 group">
+        <button className="p-2 rounded-xl hover:opacity-50 hover:cursor-not-allowed hover:bg-gray-700/50 transition-all duration-200 hover:scale-105 active:scale-95 group">
           <svg
             className="w-6 h-6 text-gray-400 group-hover:text-emerald-400 transition-colors duration-200"
             fill="currentColor"
