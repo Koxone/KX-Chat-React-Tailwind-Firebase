@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function ChatCard({ user }) {
-  const [unreadCount, setUnreadCount] = useState(0); // ← aún sin lógica de no-leídos
+  const [unreadCount, setUnreadCount] = useState(0); 
   const navigate = useNavigate();
 
   const handleClick = () => {
