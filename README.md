@@ -1,6 +1,6 @@
 # KX-Chat – React + Firebase + Tailwind Chat App
 
-KX-Chat is a modern and responsive real-time chat application built with React, Vite, Firebase Authentication, Firestore, and Tailwind CSS.
+KX-Chat is a modern and responsive real-time chat application built with React, Vite, Firebase Authentication, Firestore, and Tailwind CSS. Users can now upload profile pictures via ImgBB during sign-up.
 
 ---
 
@@ -8,8 +8,9 @@ KX-Chat is a modern and responsive real-time chat application built with React, 
 
 - 🔐 Secure user authentication (email & password)
 - 👤 Unique usernames per user
-- 👥 List and search registered users by username (modal search)
-- 💬 Ready for real-time 1-to-1 chat (user search and selection implemented)
+- 🖼️ Profile picture upload via ImgBB (image hosting)
+- 👥 List and search registered users by username (real-time modal)
+- 💬 Real-time 1-to-1 chat system (fully functional)
 - 📱 Responsive design with Tailwind CSS
 - ☁️ Firebase Firestore for user data and messages
 
@@ -19,6 +20,7 @@ KX-Chat is a modern and responsive real-time chat application built with React, 
 
 - **React** (Vite) – Frontend UI
 - **Firebase** – Authentication, Firestore, Hosting
+- **ImgBB** – Profile image hosting
 - **Tailwind CSS** – Utility-first CSS framework
 
 ---
@@ -57,12 +59,17 @@ KX-Chat is a modern and responsive real-time chat application built with React, 
    export const db = getFirestore(app);
    ```
 
-4. **Run the development server:**
+4. **Add ImgBB key to `.env.local`:**
+   ```env
+   VITE_IMGBB_KEY=YOUR_IMGBB_API_KEY
+   ```
+
+5. **Run the development server:**
    ```bash
    npm run dev
    ```
 
-5. **Open the app:**
+6. **Open the app:**
    ```
    http://localhost:5173
    ```
@@ -73,6 +80,7 @@ KX-Chat is a modern and responsive real-time chat application built with React, 
 
 - Email & password signup/login
 - Username required and stored in Firestore
+- Profile picture uploaded via ImgBB and saved to Firestore
 - Auth-protected routes (users must be signed in to use the app)
 - Logout from the app footer
 
@@ -80,10 +88,10 @@ KX-Chat is a modern and responsive real-time chat application built with React, 
 
 ## 👥 User Management
 
-- On signup, a user document is created in Firestore `/users/{uid}` with fields: `email`, `username`, `createdAt`.
+- On signup, a user document is created in Firestore `/users/{uid}` with fields: `email`, `username`, `avatar`, `createdAt`.
 - All registered users can be fetched from Firestore for listing/searching.
 - Users can be searched by username in real time with a floating modal below the search input.
-- Only exact username matches are shown in search results.
+- Exact username matches are shown in search results.
 
 ---
 
@@ -92,51 +100,26 @@ KX-Chat is a modern and responsive real-time chat application built with React, 
 ```
 KX-Chat-React-Tailwind-Firebase/
 ├── src/
-│ ├── assets/ # Static images/icons
+│ ├── assets/
 │ ├── components/
 │ │ ├── auth/
-│ │ │ ├── RequireAuth.jsx
-│ │ │ └── UserList.jsx
 │ │ ├── buttons/
-│ │ │ ├── ChatSendButton.jsx
-│ │ │ └── FooterButton.jsx
 │ │ ├── cards/
-│ │ │ ├── ChatCard.jsx
-│ │ │ ├── MessageCardIn.jsx
-│ │ │ └── MessageCardOut.jsx
 │ │ ├── containers/
-│ │ │ ├── ChatListcontainer.jsx
-│ │ │ └── MessagesContainer.jsx
 │ │ ├── footer/
-│ │ │ └── ChatFooter.jsx
 │ │ ├── header/
-│ │ │ ├── ChatHeader.jsx
-│ │ │ └── MainHeader.jsx
 │ │ ├── inputs/
-│ │ │ ├── AuthMailInput.jsx
-│ │ │ ├── AuthPasswordInput.jsx
-│ │ │ ├── AuthUserNameInput.jsx
-│ │ │ └── SearchInput.jsx
 │ │ ├── modals/
-│ │ │ └── UserSearchModal.jsx
 │ │ └── nav/
-│ │ └── Footer.jsx
 │ ├── context/
-│ │ └── AuthContext.jsx
 │ ├── firebase/
-│ │ └── firebaseConfig.js
 │ ├── pages/
-│ │ ├── AuthLoginView.jsx
-│ │ ├── ChatView.jsx
-│ │ ├── MainView.jsx
-│ │ └── SignUpView.jsx
 │ ├── App.css
 │ ├── App.jsx
 │ ├── index.css
 │ └── main.jsx
 ├── .firebaserc
 ├── .gitignore
-├── eslint.config.js
 ├── firebase.json
 ├── firestore.indexes.json
 ├── firestore.rules
@@ -162,7 +145,7 @@ KX-Chat-React-Tailwind-Firebase/
    firebase login
    ```
 
-3. **Initialize Firebase (if needed):**
+3. **Initialize Firebase:**
    ```bash
    firebase init
    ```
@@ -180,7 +163,7 @@ KX-Chat-React-Tailwind-Firebase/
    firebase deploy
    ```
 
-6. **Your app will be live at:**
+6. **Live app URL:**
    ```
    https://your-project-name.web.app
    ```
