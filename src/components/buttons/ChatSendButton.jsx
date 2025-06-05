@@ -1,11 +1,17 @@
 import React from "react";
 
-function ChatSendButton() {
-  return (
-    <button className="grid place-items-center w-8 h-8 rounded-full bg-green-600 cursor-pointer hover:bg-teal-400 active:scale-95 transition transform duration-150 shadow-lg">
-      <img className="w-5 h-5" src="/icons/general/send.png" alt="send icon" />
-    </button>
-  );
-}
+const ChatSendButton = ({ onClick, disabled }) => (
+  <button
+    onClick={onClick}
+    disabled={disabled}
+    className={`p-2 rounded-full transition-all ${
+      disabled
+        ? "opacity-40 cursor-not-allowed"
+        : "bg-emerald-500 hover:bg-emerald-600 text-white"
+    }`}
+  >
+    <img src="/icons/general/send.png" alt="send" className="w-5 h-5" />
+  </button>
+);
 
 export default ChatSendButton;
