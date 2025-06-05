@@ -23,7 +23,6 @@ function ChatListcontainer() {
       const chatUserPromises = snapshot.docs.map(async (chatDoc) => {
         const chatData = chatDoc.data();
 
-        // 🔒 Validar que chatData.participants exista y sea un array
         if (!Array.isArray(chatData.participants)) return null;
 
         const otherUid = chatData.participants.find((uid) => uid !== currentUser.uid);
